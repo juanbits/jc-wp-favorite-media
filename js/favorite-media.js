@@ -17,12 +17,12 @@ jQuery(document).ready(function($) {
                 new State({
                     id: "jcfavoritemedia",
                     search: false,
-                    title: "Ade Media"
+                    title: "Favorite Media."
                 })
             ]);
 
             // On render
-            this.on("content:render:jcfavoritemedia", this.renderAdemediaContent, this);
+            this.on("content:render:jcfavoritemedia", this.renderJcWpFavoriteMediaContent, this);
         },
 
         browseRouter: function(routerView) {
@@ -42,10 +42,10 @@ jQuery(document).ready(function($) {
             });
         },
 
-        renderAdemediaContent: function() {
+        renderJcWpFavoriteMediaContent: function() {
             var self = this;
 
-            var AdemediaContent = wp.media.View.extend({
+            var JcWpFavoriteMediaContent = wp.media.View.extend({
                 tagName: "div",
                 className: "jcfavoritemediacontent",
                 template: singleTemplate,
@@ -139,7 +139,7 @@ jQuery(document).ready(function($) {
                 }
             });
 
-            var view = new AdemediaContent();
+            var view = new JcWpFavoriteMediaContent();
             this.content.set(view);
         }
     });

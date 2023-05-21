@@ -28,31 +28,24 @@ function favorite_media_attachment_fields_to_save( $post, $attachment ) {
     return $post;
 }
 
-// Load custom JavaScript for the "Favorites" tab functionality in the media modal.
-add_action( 'admin_enqueue_scripts', 'favorite_media_enqueue_scripts' );
-function favorite_media_enqueue_scripts() {
-    wp_enqueue_script( 'favorite-media-js', plugin_dir_url( __FILE__ ) . 'js/favorite-media.js', [ 'jquery', 'media-views' ], '1.0', true );
-}
-
 class JcFavoriteMediaLibrary{
 	public function init(){
-		wp_enqueue_script(
-			'ade-media-library',
-			get_stylesheet_directory_uri() . '/ademedia.js',
-			['jquery', 'media-views']
-		);
-		add_action("print_media_templates", [$this, 'add_media_templates']);
+        // Load custom JavaScript for the "Favorites" tab functionality in the media modal.
+        add_action( 'admin_enqueue_scripts', 'favorite_media_enqueue_scripts' );
+        function favorite_media_enqueue_scripts() {
+            wp_enqueue_script( 'favorite-media-js', plugin_dir_url( __FILE__ ) . 'js/favorite-media.js', [ 'jquery', 'media-views' ], '1.0', true );
+        }
+        
+        add_action("print_media_templates", [$this, 'add_media_templates']);
 	}
 		public function add_media_templates(){
-		?>
-		<script type="text/html" id="tmpl-ademedia">
-<script type="text/html" id="attachments-wrapper-tmpl">
-<h3>hola {{ data.name }}</h3>
-  <ul class="attachments-wrapper">
-    
-  </ul>
-</script>
-		</script>
+?>
+		<script type="text/html" id="tmpl-jcfavoritemedia">
+            <h3>hola {{ data.name }}</h3>
+            <ul class="attachments-wrapper">
+                
+            </ul>
+        </script>
 		<?php
 		}
 
