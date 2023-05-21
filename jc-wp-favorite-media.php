@@ -41,10 +41,7 @@ class JcFavoriteMediaLibrary{
 		public function add_media_templates(){
 ?>
 		<script type="text/html" id="tmpl-jcfavoritemedia">
-            <h3>hola {{ data.name }}</h3>
-            <ul class="attachments-wrapper">
-                
-            </ul>
+            <h3>My Favorite Media</h3>
         </script>
 		<?php
 		}

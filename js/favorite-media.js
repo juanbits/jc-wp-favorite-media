@@ -97,8 +97,7 @@ jQuery(document).ready(function($) {
                         var attachments = query.models;
 
                         if (attachments.length > 0) {
-                            xxdata["attachments"] = attachments;
-                            self.$el.html(self.template(xxdata));
+                            self.$el.html(self.template());
 
                             var gallery = $('<div class="jcfavoritemedia-gallery"></div>');
                             self.$el.append(gallery);
